@@ -9,5 +9,7 @@ psycopg2-binary==2.9.9
 requests~=2.31.0
 bleach~=6.1.0
 email_validator==1.1.1
+gunicorn==21.2.0
+psycopg2-binary==2.9.9
 
 
