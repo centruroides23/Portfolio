@@ -1171,7 +1171,7 @@ main {
 }
 
 label {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .form-input::placeholder { font-weight: var(--fw-500); }
