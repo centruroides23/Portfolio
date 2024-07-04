@@ -28,7 +28,6 @@ app.config["UPLOAD_FOLDER"] = "static/files"
 def home():
     form = ContactForm()
     if form.validate_on_submit():
-        print("Sent")
         username = form.name.data
         email = form.email.data
         phone_number = form.phone.data
