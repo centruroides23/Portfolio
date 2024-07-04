@@ -1170,7 +1170,7 @@ main {
   outline: none;
 }
 
-.form-label {
+form .form-label {
     color: #ffffff;
 }
 
