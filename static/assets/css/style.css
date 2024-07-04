@@ -1170,8 +1170,8 @@ main {
   outline: none;
 }
 
-label {
-    color: #ffffff !important;
+.form-label {
+    color: #ffffff;
 }
 
 .form-input::placeholder { font-weight: var(--fw-500); }
