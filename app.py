@@ -10,6 +10,7 @@ from flask_forms import ContactForm
 
 # ---------------------------------------------- Variable Declaration ------------------------------------------------ #
 USERNAME = os.environ.get("USERNAME")
+USERNAME_PERSONAL = os.environ.get("USERNAME_PERSONAL")
 PASSWORD = os.environ.get("PASSWORD")
 CURRENT_YEAR = dt.datetime.now().year
 
@@ -25,7 +26,7 @@ app.config["UPLOAD_FOLDER"] = "static/files"
 async def send_email_async(msg):
     async with aiosmtplib.SMTP(hostname="smtp.gmail.com", port=587) as connection:
         await connection.login(USERNAME, PASSWORD)
-        await connection.sendmail(USERNAME, USERNAME, msg)
+        await connection.sendmail(USERNAME, USERNAME_PERSONAL, msg)
 
 
 # ---------------------------------------------------- App Routes ---------------------------------------------------- #
