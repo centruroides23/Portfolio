@@ -1,6 +1,7 @@
 # ----------------------------------------------- Modules Declaration ------------------------------------------------ #
 import os
-import smtplib
+import asyncio
+import aiosmtplib
 import bleach
 import datetime as dt
 from flask import Flask, render_template, url_for, redirect, send_from_directory
@@ -23,6 +24,13 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 app.config["UPLOAD_FOLDER"] = "static/files"
 
 
+# ------------------------------------------------ Function Declaration ---------------------------------------------- #
+async def send_email_async(msg):
+    async with aiosmtplib.SMTP(hostname="smtp.gmail.com", port=587) as connection:
+        await connection.login(USERNAME, PASSWORD)
+        await connection.sendmail(USERNAME, USERNAME, msg)
+
+
 # ---------------------------------------------------- App Routes ---------------------------------------------------- #
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -34,14 +42,8 @@ def home():
         message = form.message.data
         full_email = (f"Subject: Message from Personal Website\n\n{message.encode('utf-8')}\n\n\n"
                       f"From: {username}\nEmail: {email}\nPhone Number: {phone_number}")
-        with smtplib.SMTP("smtp.gmail.com") as connection:
-            connection.starttls()
-            connection.login(user=USERNAME,
-                             password=PASSWORD)
-            connection.sendmail(from_addr=USERNAME,
-                                to_addrs=USERNAME,
-                                msg=full_email)
-            return redirect(url_for("receive_data"))
+        asyncio.run(send_email_async(full_email))
+        return redirect(url_for("receive_data"))
     return render_template("index.html",
                            form=form,
                            year=str(CURRENT_YEAR))
