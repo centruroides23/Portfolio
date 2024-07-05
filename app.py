@@ -2,12 +2,10 @@
 import os
 import asyncio
 import aiosmtplib
-import bleach
 import datetime as dt
 from flask import Flask, render_template, url_for, redirect, send_from_directory
 from flask_bootstrap import Bootstrap5
 from flask_forms import ContactForm
-from flask_ckeditor import CKEditor
 
 
 # ---------------------------------------------- Variable Declaration ------------------------------------------------ #
@@ -18,7 +16,6 @@ CURRENT_YEAR = dt.datetime.now().year
 
 # --------------------------------------------- Application Declaration ---------------------------------------------- #
 app = Flask(__name__)
-ckeditor = CKEditor(app)
 Bootstrap5(app)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 app.config["UPLOAD_FOLDER"] = "static/files"
