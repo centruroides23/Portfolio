@@ -353,7 +353,7 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
-  border-radius: 20px;
+  border-radius: 100px;
 }
 
 .info-content .name {
@@ -600,7 +600,7 @@ main {
   left: 0;
   transform: translate(15px, -25px);
   background: var(--bg-gradient-onyx);
-  border-radius: 14px;
+  border-radius: 100px;
   box-shadow: var(--shadow-1);
 }
 
@@ -709,7 +709,7 @@ main {
 .modal-avatar-box {
   background: var(--bg-gradient-onyx);
   width: max-content;
-  border-radius: 14px;
+  border-radius: 100px;
   margin-bottom: 15px;
   box-shadow: var(--shadow-2);
 }
@@ -1362,7 +1362,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box { border-radius: 100px; }
 
   .avatar-box img { width: 120px; }
 
@@ -1484,7 +1484,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .modal-avatar-box {
-    border-radius: 18px;
+    border-radius: 100px;
     margin-bottom: 0;
   }
 
